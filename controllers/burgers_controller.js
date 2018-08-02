@@ -16,17 +16,13 @@ router.get("/", function (req, res) {
 router.put("/burgers/update", function (req, res) {
     var condition = "id = "+req.body.burger_id;
     console.log("Condition: "+condition);
-    // burger.update(req.body.burger_id, function (result) {
-    //     console.log(result);
-    //     res.redirect('/');
 
-    // });
     burger.update( condition, function(result){
         if(result.changedRows == 0){
             return res.status(404).end()
         }
         else{
-            // res.status(200).end();
+            
             res.redirect('/');
         }
     })
